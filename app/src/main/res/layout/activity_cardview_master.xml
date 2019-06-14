@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+   <ScrollView android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:elevation="1dp"
+   >
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="3dp"
+                android:elevation="2dp"
+                android:layout_weight="1"
+        >
+            <Button
+                    android:text="Request Data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:textColor="#fff"
+                    android:elevation="4dp"
+                    android:background="@drawable/roundedge_button"
+                    android:fontFamily="@font/proxima_nova_alt_bold"
+                    android:layout_marginBottom="4dp"
+                    android:textAllCaps="false"
+                    android:id="@+id/button"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="3dp"
+                android:elevation="1dp"
+                android:layout_weight="1"
+        >
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+   </ScrollView>
+</FrameLayout>

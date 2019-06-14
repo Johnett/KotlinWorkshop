@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/roundedge_background"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_margin="4dp"
+>
+    <TextView
+            android:text="@string/user_main_recycler_placeholder_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/UserRecyclerItemStyle"
+            app:fontFamily="@font/diavlo_bold"
+            android:id="@+id/user_name"/>
+    <TextView
+            android:text="@string/user_main_recycler_placeholder_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/UserRecyclerItemStyle.SubItem"
+            app:fontFamily="@font/diavlo_medium"
+            android:id="@+id/user_age"/>
+    <TextView
+            android:text="@string/user_main_recycler_placeholder_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/UserRecyclerItemStyle.SubItem"
+            app:fontFamily="@font/diavlo_medium"
+            android:id="@+id/user_description"/>
+    <TextView
+            android:text="@string/user_main_recycler_placeholder_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/UserRecyclerItemStyle.SubItem"
+            app:fontFamily="@font/diavlo_medium"
+            android:id="@+id/user_address"/>
+</LinearLayout>

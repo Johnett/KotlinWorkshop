@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:background="#fff"
+             xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <include layout="@layout/app_bar_layout"/>
+
+        <ScrollView
+                android:id="@+id/scrollview"
+                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
+
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView2"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText2"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView3"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText3"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView4"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText4"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView5"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText5"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView6"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText6"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView7"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText7"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView8"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText8"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView9"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText9"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView10"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText10"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView11"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText11"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView12"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText12"/>
+
+                <TextView
+                        android:text="Enter name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13"
+                        app:fontFamily="@font/proxima_nova_alt_bold"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="10dp"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords|textAutoCorrect"
+                        android:hint="Name(Last field)"
+                        app:fontFamily="@font/proxima_nova_alt_light"
+                        android:ems="10"
+                        android:id="@+id/editText13"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

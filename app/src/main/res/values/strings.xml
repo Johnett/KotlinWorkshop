@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">XmlShowCase</string>
+
+    <!--Main page content-->
+    <string name="item1_text">Add user</string>
+    <string name="item2_text">View user</string>
+    <string name="main_page_toolbar_text">Home</string>
+
+    <!--Misc Texts-->
+    <string name="loading_text">Loading&#8230;</string>
+
+    <!--Main activity strings-->
+    <string name="main_activity_toolbar_text">XML Showcase</string>
+    <string name="main_activity_menu_title">XML Showcase</string>
+
+    <!--User main activity-->
+    <string name="user_main_activity_toolbar_text">User Home</string>
+
+    <!--Recycler view place holder text-->
+    <string name="user_main_recycler_placeholder_name">Loading&#8230;</string>
+    <string name="user_main_recycler_placeholder_age">Loading&#8230;</string>
+    <string name="user_main_recycler_placeholder_address">Loading&#8230;</string>
+    <string name="user_main_recycler_placeholder_description">Loading&#8230;</string>
+
+    <!--Add user activity-->
+    <string name="add_user_toolbar_text">Add User</string>
+    <string name="add_user_name_label">Name</string>
+    <string name="add_user_name_hint">Enter name</string>
+    <string name="add_user_age_label">Age</string>
+    <string name="add_user_age_hint">Enter age</string>
+    <string name="add_user_address_label">Address</string>
+    <string name="add_user_address_hint">Enter address</string>
+    <string name="add_user_description_label">Description</string>
+    <string name="add_user_description_hint">Enter description</string>
+
+    <!--Menu strings-->
+    <string name="add_user_menu_text">Add user</string>
+
+</resources>

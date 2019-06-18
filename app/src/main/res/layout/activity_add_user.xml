@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".AddUser">
+<LinearLayout android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+>
 
-            <include layout="@layout/app_bar_layout"/>
-            <ScrollView android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+    <include layout="@layout/app_bar_layout"/>
+
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/mainContainer"
+    >
+
                 <LinearLayout android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:orientation="vertical"
@@ -32,5 +40,13 @@
                     />
                 </LinearLayout>
             </ScrollView>
+    </LinearLayout>
 
-</LinearLayout>
+    <com.architecture.www.xmlshowcase.ProgressView android:layout_width="wrap_content"
+                                                   android:layout_height="wrap_content"
+                                                   android:id="@+id/progressView"
+                                                   android:layout_gravity="center"
+    >
+    </com.architecture.www.xmlshowcase.ProgressView>
+
+</FrameLayout>

@@ -4,22 +4,22 @@ import com.google.gson.annotations.SerializedName
 
     data class UserModel(
         @SerializedName("_id")
-        var id:String? = null,
+        var id:String,
 
         @SerializedName("name")
-        var name:String? = null,
+        var name:String,
 
         @SerializedName("address")
-        var address:String? = null,
+        var address:String,
 
         @SerializedName("age")
-        var age:String? = null,
+        var age:String,
 
         @SerializedName("description")
-        var description:String? = null,
+        var description:String,
 
         @SerializedName("createdOn")
-        var creation:String? = null
+        var creation:String
         )
 
     data class UserResponse(

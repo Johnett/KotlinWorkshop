@@ -28,7 +28,6 @@ class ProgressView(context: Context,
         owner: LifecycleOwner,
         data: LiveData<Boolean>
     ) = data.observe(owner, Observer {
-        System.out.println("testingthevalue_____$it")
         setIsLoading(it)
     })
 

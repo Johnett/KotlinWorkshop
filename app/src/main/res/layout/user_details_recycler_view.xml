@@ -35,4 +35,40 @@
             style="@style/UserRecyclerItemStyle.SubItem"
             app:fontFamily="@font/diavlo_medium"
             android:id="@+id/user_address"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:weightSum="2"
+                  android:layout_margin="4dp"
+                  android:paddingBottom="4dp"
+    >
+        <Button
+                android:text="@string/user_main_recycler_delete_button"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:textColor="@color/recyclerview_delete_button_text_color"
+                android:background="@drawable/roundbackground_delete"
+                app:fontFamily="@font/diavlo_bold"
+                android:id="@+id/delete"
+        />
+
+        <Button
+                android:text="@string/user_main_recycler_update_button"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:textColor="#313131"
+                app:fontFamily="@font/diavlo_bold"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/roundbackground_update"
+                android:id="@+id/update"
+        />
+    </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".UpdateUser">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+    >
+
+        <include layout="@layout/app_bar_layout"/>
+
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/mainContainer"
+        >
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+            >
+                <com.architecture.www.xmlshowcase.UserDetailsItem android:layout_width="match_parent"
+                                                                  android:layout_height="wrap_content"
+                                                                  android:id="@+id/userDetails1"
+                />
+                <com.architecture.www.xmlshowcase.UserDetailsItem android:layout_width="match_parent"
+                                                                  android:layout_height="wrap_content"
+                                                                  android:id="@+id/userDetails2"
+                />
+                <com.architecture.www.xmlshowcase.UserDetailsItem android:layout_width="match_parent"
+                                                                  android:layout_height="wrap_content"
+                                                                  android:id="@+id/userDetails3"
+                />
+                <com.architecture.www.xmlshowcase.UserDetailsItem android:layout_width="match_parent"
+                                                                  android:layout_height="wrap_content"
+                                                                  android:id="@+id/userDetails4"
+                />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.architecture.www.xmlshowcase.ProgressView android:layout_width="wrap_content"
+                                                   android:layout_height="wrap_content"
+                                                   android:id="@+id/progressView"
+                                                   android:layout_gravity="center"
+    >
+    </com.architecture.www.xmlshowcase.ProgressView>
+
+</FrameLayout>

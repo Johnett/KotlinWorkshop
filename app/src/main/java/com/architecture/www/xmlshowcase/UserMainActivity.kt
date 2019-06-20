@@ -1,24 +1,56 @@
 package com.architecture.www.xmlshowcase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_user_main.*
 import kotlinx.android.synthetic.main.app_bar_layout.*
 
-class UserMainActivity : AppCompatActivity() {
-    private lateinit var userResponseList: List<UserModel>
+class UserMainActivity : AppCompatActivity(),UserOperations {
+    private lateinit var userResponseList: MutableList<UserModel>
+    private var status = MutableLiveData<Boolean>()
+    private var activityChangeStatus = MutableLiveData<Boolean>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_main)
-
+        progressView.observe(this,status)
         setUi()
         apiCall()
+        observe(this,activityChangeStatus)
+    }
+
+    override fun deleteUser(id:String) {
+        delete(id)
+    }
+
+    override fun loadingStatus(loadstatus: Boolean,notifier:RecyclerViewOperation) {
+        if (loadstatus){
+            status.value = true
+            notifier.dataSetChangeAlertI()
+        }else{
+            Handler().postDelayed({
+                status.value = false
+            },3000)
+        }
+    }
+
+    override fun navigateToUpdate(id: String) {
+        val intent = Intent(this,UpdateUser::class.java)
+        intent.putExtra("id",id)
+        startActivity(intent)
+        activityChangeStatus.value = true
     }
 
     private fun setUi(){
@@ -29,18 +61,10 @@ class UserMainActivity : AppCompatActivity() {
         }
         toolbar_title.text = getString(R.string.user_main_activity_toolbar_text)
         layout_shadow.visibility = View.VISIBLE
-
-//        user_list.onScroll {
-//            layout_shadow.visibility =
-//                if (it > 0f) {
-//                    View.VISIBLE
-//                } else {
-//                    View.GONE
-//                }
-//        }
     }
 
     private fun apiCall(){
+        status.value = true
         val mCompositeDisposable = CompositeDisposable()
         val userResponse = UserService.userServiceApi
         val movieResponseList = userResponse.getAllUsers()
@@ -50,27 +74,66 @@ class UserMainActivity : AppCompatActivity() {
             .subscribe(this::handleResponse, this::handleError))
     }
 
-    private fun handleResponse(androidList: List<UserModel>) {
+    private fun delete(userId:String){
+        val mCompositeDisposable = CompositeDisposable()
+        val userResponse = UserService.userServiceApi
+        val movieResponseList = userResponse.deleteUser(userId)
+        mCompositeDisposable.add(movieResponseList
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(this::deleteResponse, this::deleteError))
+    }
+
+    private fun deleteResponse(androidList: JsonObject) {
+        System.out.println("testingthedeleteresponse $androidList")
+    }
+
+    private fun deleteError(error: Throwable) {
+        error.printStackTrace()
+        System.out.println("testingthedeleteresponse $error")
+    }
+
+    private fun handleResponse(androidList: MutableList<UserModel>) {
         setResponseList(androidList)
+        status.value = false
     }
 
     private fun handleError(error: Throwable) {
         error.printStackTrace()
+        status.value = false
     }
 
     private fun setRecyclerView(){
         user_list.layoutManager = LinearLayoutManager(this)
-        user_list.adapter = UserAdpater(getResponseList(), this)
+        user_list.adapter = UserAdpater(getResponseList(), this,this)
 
     }
 
-    private fun setResponseList(responseList:List<UserModel>){
+    private fun setResponseList(responseList:MutableList<UserModel>){
         userResponseList = responseList
         setRecyclerView()
     }
 
-    private fun getResponseList():List<UserModel>{
+    private fun getResponseList():MutableList<UserModel>{
         return userResponseList
+    }
+
+    private fun observe(
+        owner: LifecycleOwner,
+        data: LiveData<Boolean>
+    ) = data.observe(owner, Observer {
+        if (it==false){
+            apiCall()
+        }
+    })
+
+    override fun onResume() {
+        super.onResume()
+        if (activityChangeStatus.value != null){
+            if (activityChangeStatus.value!!){
+                activityChangeStatus.value = false
+            }
+        }
     }
 }
 

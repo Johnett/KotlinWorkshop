@@ -21,6 +21,8 @@
     <string name="user_main_recycler_placeholder_age">Loading&#8230;</string>
     <string name="user_main_recycler_placeholder_address">Loading&#8230;</string>
     <string name="user_main_recycler_placeholder_description">Loading&#8230;</string>
+    <string name="user_main_recycler_delete_button">Delete user</string>
+    <string name="user_main_recycler_update_button">Update user</string>
 
     <!--Add user activity-->
     <string name="add_user_toolbar_text">Add User</string>
@@ -35,5 +37,8 @@
 
     <!--Menu strings-->
     <string name="add_user_menu_text">Add user</string>
+
+    <!--Update user activity-->
+    <string name="update_user_toolbar_text">Update User</string>
 
 </resources>

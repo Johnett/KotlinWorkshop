@@ -13,8 +13,10 @@ import io.reactivex.schedulers.Schedulers
 class AddUserViewModel:ViewModel(),LifecycleObserver {
 
     private val isLoading = MutableLiveData<Boolean>()
+    private val isComplete = MutableLiveData<String>()
     fun apiCall(userValues:JsonObject){
         isLoading.value = true
+        isComplete.value = "1"
         val mCompositeDisposable = CompositeDisposable()
         val userResponse = UserService.userServiceApi
 
@@ -29,15 +31,18 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
 
         System.out.println("AddUser___Result___"+ androidList.name)
         isLoading.value=false
-
+        isComplete.value="2"
     }
 
     private fun handleError(error: Throwable) {
         Log.d("AddUser___Error___", error.localizedMessage)
         isLoading.value=false
+        isComplete.value="3"
     }
 
     fun checkIsLoading():LiveData<Boolean> = isLoading
+
+    fun checkRequestStatus():LiveData<String> = isComplete
 
     fun collectingUserValue(
         name:String,

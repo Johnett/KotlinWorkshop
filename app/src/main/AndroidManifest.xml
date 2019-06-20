@@ -16,6 +16,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".UpdateUser">
+        </activity>
         <activity android:name=".AddUser">
         </activity>
         <activity android:name=".UserMainActivity">

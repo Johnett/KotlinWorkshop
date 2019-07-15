@@ -29,7 +29,7 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
 
     private fun handleResponse(androidList: UserModel) {
 
-        System.out.println("AddUser___Result___"+ androidList.name)
+        println("AddUser___Result___"+ androidList.name)
         isLoading.value=false
         isComplete.value="2"
     }

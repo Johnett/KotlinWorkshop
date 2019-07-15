@@ -134,7 +134,7 @@ class UpdateUser : AppCompatActivity() {
 
     private fun userDetailsResponse(androidList: UserModel) {
 
-        System.out.println("AddUser___Result___"+ androidList.name)
+        println("AddUser___Result___"+ androidList.name)
         userDetails1.setValue(androidList.name)
         userDetails2.setValue(androidList.age)
         userDetails3.setValue(androidList.address)
@@ -161,7 +161,7 @@ class UpdateUser : AppCompatActivity() {
 
     private fun handleResponse(androidList: UserModel) {
 
-        System.out.println("AddUser___Result___"+ androidList.name)
+        println("AddUser___Result___"+ androidList.name)
         status.value = false
         updateFlag.value = "2"
     }

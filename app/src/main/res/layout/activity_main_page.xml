@@ -36,6 +36,20 @@
                                                            android:focusable="true"
                 />
 
+                <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btBounce"
+                        android:text="@string/main_page_checking_button"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/diavlo_bold"
+                        android:layout_gravity="center"
+                />
+
             </LinearLayout>
 
         </ScrollView>

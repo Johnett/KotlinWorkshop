@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.JsonObject
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -26,9 +24,9 @@ class UserMainActivity : AppCompatActivity(),UserOperations {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_main)
         progressView.observe(this,status)
+        observe(this,activityChangeStatus)
         setUi()
         apiCall()
-        observe(this,activityChangeStatus)
     }
 
     override fun deleteUser(id:String) {
@@ -71,7 +69,13 @@ class UserMainActivity : AppCompatActivity(),UserOperations {
         mCompositeDisposable.add(movieResponseList
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe(this::handleResponse, this::handleError))
+            .subscribe({
+                setResponseList(it)
+                status.value = false
+            }, {
+                it.printStackTrace()
+                status.value = false
+            }))
     }
 
     private fun delete(userId:String){
@@ -81,32 +85,17 @@ class UserMainActivity : AppCompatActivity(),UserOperations {
         mCompositeDisposable.add(movieResponseList
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe(this::deleteResponse, this::deleteError))
-    }
-
-    private fun deleteResponse(androidList: JsonObject) {
-        System.out.println("testingthedeleteresponse $androidList")
-    }
-
-    private fun deleteError(error: Throwable) {
-        error.printStackTrace()
-        System.out.println("testingthedeleteresponse $error")
-    }
-
-    private fun handleResponse(androidList: MutableList<UserModel>) {
-        setResponseList(androidList)
-        status.value = false
-    }
-
-    private fun handleError(error: Throwable) {
-        error.printStackTrace()
-        status.value = false
+            .subscribe({
+                println("testingthedeleteresponse $it")
+            }, {
+                it.printStackTrace()
+                println("testingthedeleteresponse $it")
+            }))
     }
 
     private fun setRecyclerView(){
         user_list.layoutManager = LinearLayoutManager(this)
         user_list.adapter = UserAdpater(getResponseList(), this,this)
-
     }
 
     private fun setResponseList(responseList:MutableList<UserModel>){

@@ -40,5 +40,6 @@
 
     <!--Update user activity-->
     <string name="update_user_toolbar_text">Update User</string>
+    <string name="main_page_checking_button">Checking</string>
 
 </resources>

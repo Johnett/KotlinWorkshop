@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.user_details_recycler_view.view.*
@@ -22,7 +21,7 @@ class UserAdpater(private var items : MutableList<UserModel>, private val contex
         holder.tvUserDescription!!.text = items[position].description
         holder.btDelete!!.setOnClickListener {
             userOperations.deleteUser(items[position].id)
-            System.out.println("idprinting ${items[position].id}")
+            println("idprinting ${items[position].id}")
             userOperations.loadingStatus(true,this)
             items.removeAt(position)
             notifyItemRemoved(position)

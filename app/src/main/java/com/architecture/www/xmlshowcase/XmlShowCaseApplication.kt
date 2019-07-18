@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.StrictMode
 import com.bugsnag.android.Bugsnag
 
+/** @author Johnett Mathew */
 open class XmlShowCaseApplication : Application() {
 //    val leakedViews = mutableListOf<View>()
     override fun onCreate() {

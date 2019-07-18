@@ -24,8 +24,8 @@ import kotlinx.android.synthetic.main.app_bar_layout.*
  * */
 class UpdateUser : AppCompatActivity() {
 
-    private val status = MutableLiveData<Boolean>()
-    private val updateFlag = MutableLiveData<String>()
+    internal val status = MutableLiveData<Boolean>()
+    internal val updateFlag = MutableLiveData<String>()
     private var userId:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,24 +72,6 @@ class UpdateUser : AppCompatActivity() {
         userDetails4.setHint(R.string.add_user_description_hint)
     }
 
-    /**
-     * This function will return the user information to the retrofit api class
-     * */
-    private fun getUpdate():JsonObject{
-        val jsonObject = JsonObject()
-        jsonObject.addProperty("name",userDetails1.getValue())
-        jsonObject.addProperty("age",userDetails2.getValue())
-        jsonObject.addProperty("address",userDetails3.getValue())
-        jsonObject.addProperty("description",userDetails4.getValue())
-        return jsonObject
-    }
-
-    private fun hideKeyBoard(){
-        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        val view = this.currentFocus
-        imm.hideSoftInputFromWindow(view!!.windowToken,0)
-    }
-
     private fun validation():Boolean{
         return when {
             userDetails1.getValue().isEmpty() -> {
@@ -129,56 +111,4 @@ class UpdateUser : AppCompatActivity() {
             hideKeyBoard()
         }
     })
-
-    private fun getUserDetails(id:String){
-        status.value = true
-        val mCompositeDisposable = CompositeDisposable()
-        val userResponse = UserService.userServiceApi
-
-        val userResponseList = userResponse.getUserById(id)
-        mCompositeDisposable.add(userResponseList
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe(this::userDetailsResponse, this::userDetailsError))
-    }
-
-    private fun userDetailsResponse(androidList: UserModel) {
-
-        println("AddUser___Result___"+ androidList.name)
-        userDetails1.setValue(androidList.name)
-        userDetails2.setValue(androidList.age)
-        userDetails3.setValue(androidList.address)
-        userDetails4.setValue(androidList.description)
-        status.value =false
-    }
-
-    private fun userDetailsError(error: Throwable) {
-        Log.d("AddUser___Error___", error.toString())
-        status.value =false
-    }
-
-    private fun updateUserDetails(id:String, userValues: JsonObject){
-        status.value = true
-        val mCompositeDisposable = CompositeDisposable()
-        val userResponse = UserService.userServiceApi
-
-        val userResponseList = userResponse.updateUser(id,userValues)
-        mCompositeDisposable.add(userResponseList
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe(this::handleResponse, this::handleError))
-    }
-
-    private fun handleResponse(androidList: UserModel) {
-
-        println("AddUser___Result___"+ androidList.name)
-        status.value = false
-        updateFlag.value = "2"
-    }
-
-    private fun handleError(error: Throwable) {
-        Log.d("AddUser___Error___", error.toString())
-        status.value = false
-        updateFlag.value = "3"
-    }
 }

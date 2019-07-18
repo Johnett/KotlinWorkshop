@@ -9,6 +9,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_update_user.*
 
+/**
+ * Network call to update user details
+ * */
 internal fun UpdateUser.updateUserDetails(id:String, userValues: JsonObject){
     status.value = true
     val mCompositeDisposable = CompositeDisposable()
@@ -21,6 +24,9 @@ internal fun UpdateUser.updateUserDetails(id:String, userValues: JsonObject){
         .subscribe(this::handleResponse, this::handleError))
 }
 
+/**
+ * Handle response send from server
+ * */
 internal fun UpdateUser.handleResponse(androidList: UserModel) {
 
     println("AddUser___Result___"+ androidList.name)
@@ -28,12 +34,18 @@ internal fun UpdateUser.handleResponse(androidList: UserModel) {
     updateFlag.value = "2"
 }
 
+/**
+ * Handle error or exception produced by network call
+ * */
 internal fun UpdateUser.handleError(error: Throwable) {
     Log.d("AddUser___Error___", error.toString())
     status.value = false
     updateFlag.value = "3"
 }
 
+/**
+ * Network call to get user details from server
+ * */
 internal fun UpdateUser.getUserDetails(id:String){
     status.value = true
     val mCompositeDisposable = CompositeDisposable()
@@ -46,6 +58,9 @@ internal fun UpdateUser.getUserDetails(id:String){
         .subscribe(this::userDetailsResponse, this::userDetailsError))
 }
 
+/**
+ * Handling user details send from the server
+ * */
 internal fun UpdateUser.userDetailsResponse(androidList: UserModel) {
 
     println("AddUser___Result___"+ androidList.name)
@@ -56,6 +71,9 @@ internal fun UpdateUser.userDetailsResponse(androidList: UserModel) {
     status.value =false
 }
 
+/**
+ * Handling error exception triggered by the network call
+ * */
 internal fun UpdateUser.userDetailsError(error: Throwable) {
     Log.d("AddUser___Error___", error.toString())
     status.value =false
@@ -73,6 +91,9 @@ internal fun UpdateUser.getUpdate():JsonObject{
     return jsonObject
 }
 
+/**
+ * Helper function to hide keyboard after the edit text box lost its focus.
+ * */
 internal fun UpdateUser.hideKeyBoard(){
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     val view = this.currentFocus

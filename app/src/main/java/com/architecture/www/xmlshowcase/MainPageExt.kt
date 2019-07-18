@@ -7,8 +7,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+/**
+ * Logging variable
+ * */
 internal const val preTextSegment = "MainPage___"
 
+/**
+ * Coroutine testing function
+ * */
 fun bufferSegment() = runBlocking {
     val channel = Channel<Int>(4)
     val sender = launch {
@@ -21,6 +27,9 @@ fun bufferSegment() = runBlocking {
     sender.cancel()
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal suspend fun player(name: String, table: Channel<MainPage.Ball>){
     for(ball in table){
         ball.hits++
@@ -30,6 +39,9 @@ internal suspend fun player(name: String, table: Channel<MainPage.Ball>){
     }
 }
 
+/**
+ * Coroutine testing function
+ * */
 private fun allocateDataManipulation() = runBlocking {
     val table = Channel<MainPage.Ball>()
     launch { player("ping",table) }
@@ -40,6 +52,9 @@ private fun allocateDataManipulation() = runBlocking {
 }
 
 
+/**
+ * Coroutine testing function
+ * */
 internal fun MainPage.fibonacciSeries(){
     val n = 100
     var t1 = 0
@@ -52,6 +67,9 @@ internal fun MainPage.fibonacciSeries(){
     }
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal fun MainPage.initateLongPrintMessage(){
     println("""
             |Invalid path string: "{{your path will be here}}".
@@ -65,6 +83,9 @@ internal fun MainPage.initateLongPrintMessage(){
         """.trimMargin())
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal fun MainPage.allocateDataManipulation() = runBlocking {
     val table = Channel<MainPage.Ball>()
     launch { player("ping",table) }
@@ -74,6 +95,9 @@ internal fun MainPage.allocateDataManipulation() = runBlocking {
     coroutineContext.cancelChildren()
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal suspend fun MainPage.player(name: String, table: Channel<MainPage.Ball>){
     for(ball in table){
         ball.hits++
@@ -83,6 +107,9 @@ internal suspend fun MainPage.player(name: String, table: Channel<MainPage.Ball>
     }
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal suspend fun MainPage.sendString(channel: SendChannel<String>, s: String, time: Long){
     while(true){
         delay(time)
@@ -90,6 +117,9 @@ internal suspend fun MainPage.sendString(channel: SendChannel<String>, s: String
     }
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal fun MainPage.sendStringSegment() = runBlocking {
     val channel = Channel<String>()
     launch { sendString(channel,"Foo",200L) }
@@ -100,6 +130,9 @@ internal fun MainPage.sendStringSegment() = runBlocking {
     coroutineContext.cancelChildren()
 }
 
+/**
+ * Coroutine testing function
+ * */
 internal fun MainPage.bufferSegment() = runBlocking {
     val channel = Channel<Int>(4)
     val sender = launch {

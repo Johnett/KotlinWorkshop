@@ -30,10 +30,7 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
             .subscribeOn(Schedulers.io())
             .subscribe(this::handleResponse, this::handleError))
     }
-
-    /**
-     * Basic response handler function for network request
-     * */
+    
     private fun handleResponse(androidList: UserModel) {
 
         println("AddUser___Result___"+ androidList.name)
@@ -41,9 +38,6 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
         isComplete.value="2"
     }
 
-    /**
-     * Basic error handler function for network request
-     * */
     private fun handleError(error: Throwable) {
         Log.d("AddUser___Error___", error.toString())
         isLoading.value=false

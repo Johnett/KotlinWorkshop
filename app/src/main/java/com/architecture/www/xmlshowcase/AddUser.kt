@@ -31,6 +31,9 @@ class AddUser : AppCompatActivity() {
         setAllCollectors()
     }
 
+    /**
+     * This function responsible for all ui setups done in this page
+     * */
     private fun setUi(){
         toolbar.run {
             inflateMenu(R.menu.menu_add_user)
@@ -55,6 +58,9 @@ class AddUser : AppCompatActivity() {
         layout_shadow.visibility = View.VISIBLE
     }
 
+    /**
+     * Collectors are responsible for user information collection which is done with the help of edit text boxes
+     * */
     private fun setAllCollectors(){
         userDetails1.setLabel(R.string.add_user_name_label)
         userDetails1.setHint(R.string.add_user_name_hint)
@@ -66,6 +72,10 @@ class AddUser : AppCompatActivity() {
         userDetails4.setHint(R.string.add_user_description_hint)
     }
 
+    /**
+     * This observer will transfer the status of user details update request if it is successful then it will
+     * show a toast and if it fails then it will show failure message
+     * */
     private fun observe(
         owner: LifecycleOwner,
         data: LiveData<String>

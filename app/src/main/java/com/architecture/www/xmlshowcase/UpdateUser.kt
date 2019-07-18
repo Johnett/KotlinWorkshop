@@ -54,6 +54,9 @@ class UpdateUser : AppCompatActivity() {
         layout_shadow.visibility = View.VISIBLE
     }
 
+    /**
+     * In our case collectors are widgets which collect user information like edit text boxes
+     * */
     private fun setAllCollectors(){
         userDetails1.setLabel(R.string.add_user_name_label)
         userDetails1.setHint(R.string.add_user_name_hint)
@@ -65,6 +68,9 @@ class UpdateUser : AppCompatActivity() {
         userDetails4.setHint(R.string.add_user_description_hint)
     }
 
+    /**
+     * This function will return the user information to the retrofit api class
+     * */
     private fun getUpdate():JsonObject{
         val jsonObject = JsonObject()
         jsonObject.addProperty("name",userDetails1.getValue())

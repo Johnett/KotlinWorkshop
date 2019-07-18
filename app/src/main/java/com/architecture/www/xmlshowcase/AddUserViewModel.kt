@@ -14,6 +14,10 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
 
     private val isLoading = MutableLiveData<Boolean>()
     private val isComplete = MutableLiveData<String>()
+
+    /**
+     * Service calling function used to retrieve user information from the server
+     * */
     fun apiCall(userValues:JsonObject){
         isLoading.value = true
         isComplete.value = "1"
@@ -56,6 +60,9 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
      * */
     fun checkRequestStatus():LiveData<String> = isComplete
 
+    /**
+     * This function will return collected user details to the retrofit support function
+     * */
     fun collectingUserValue(
         name:String,
         age:String,

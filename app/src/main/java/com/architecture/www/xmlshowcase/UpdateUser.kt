@@ -143,7 +143,7 @@ class UpdateUser : AppCompatActivity() {
     }
 
     private fun userDetailsError(error: Throwable) {
-        Log.d("AddUser___Error___", error.localizedMessage)
+        Log.d("AddUser___Error___", error.toString())
         status.value =false
     }
 
@@ -167,7 +167,7 @@ class UpdateUser : AppCompatActivity() {
     }
 
     private fun handleError(error: Throwable) {
-        Log.d("AddUser___Error___", error.localizedMessage)
+        Log.d("AddUser___Error___", error.toString())
         status.value = false
         updateFlag.value = "3"
     }

@@ -35,7 +35,7 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
     }
 
     private fun handleError(error: Throwable) {
-        Log.d("AddUser___Error___", error.localizedMessage)
+        Log.d("AddUser___Error___", error.toString())
         isLoading.value=false
         isComplete.value="3"
     }

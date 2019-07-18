@@ -30,7 +30,7 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
             .subscribeOn(Schedulers.io())
             .subscribe(this::handleResponse, this::handleError))
     }
-    
+
     private fun handleResponse(androidList: UserModel) {
 
         println("AddUser___Result___"+ androidList.name)

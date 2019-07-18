@@ -15,11 +15,11 @@ class UserAdpater(private var items : MutableList<UserModel>, private val contex
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvUserName!!.text = items[position].name
-        holder.tvUserAge!!.text = items[position].age
-        holder.tvUserAddress!!.text = items[position].address
-        holder.tvUserDescription!!.text = items[position].description
-        holder.btDelete!!.setOnClickListener {
+        holder.tvUserName?.text = items[position].name
+        holder.tvUserAge?.text = items[position].age
+        holder.tvUserAddress?.text = items[position].address
+        holder.tvUserDescription?.text = items[position].description
+        holder.btDelete?.setOnClickListener {
             userOperations.deleteUser(items[position].id)
             println("idprinting ${items[position].id}")
             userOperations.loadingStatus(true,this)

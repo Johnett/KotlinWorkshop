@@ -18,6 +18,10 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_update_user.*
 import kotlinx.android.synthetic.main.app_bar_layout.*
 
+/**
+ * This class extend AppCompatActivity and it helps to update the user information.
+ * User update endpoint called with the help of retrofit library
+ * */
 class UpdateUser : AppCompatActivity() {
 
     private val status = MutableLiveData<Boolean>()

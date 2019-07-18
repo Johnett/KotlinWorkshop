@@ -115,7 +115,7 @@ class MainPage : AppCompatActivity() {
         }
     }
 
-    fun main() = runBlocking {
+    private fun main() = runBlocking {
         val job= GlobalScope.launch {
             delay(1000L)
             println("$preTextSegment world is becoming slow every day")

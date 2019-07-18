@@ -40,8 +40,14 @@ class AddUserViewModel:ViewModel(),LifecycleObserver {
         isComplete.value="3"
     }
 
+    /**
+     * This function used to check the loading state of progress view
+     * */
     fun checkIsLoading():LiveData<Boolean> = isLoading
 
+    /**
+     * This function used to check the status of request
+     * */
     fun checkRequestStatus():LiveData<String> = isComplete
 
     fun collectingUserValue(

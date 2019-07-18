@@ -21,7 +21,7 @@ import kotlin.math.abs
 
 class MainPage : AppCompatActivity() {
 
-    private val preTextSegment = "MainPage___"
+    internal val preTextSegment = "MainPage___"
     @ExperimentalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -206,54 +206,7 @@ class MainPage : AppCompatActivity() {
         producer.cancel()
     }
 
-    private suspend fun sendString(channel: SendChannel<String>, s: String, time: Long){
-        while(true){
-            delay(time)
-            channel.send(s)
-        }
-    }
-
-    fun sendStringSegment() = runBlocking {
-        val channel = Channel<String>()
-        launch { sendString(channel,"Foo",200L) }
-        launch { sendString(channel,"Bar",500L) }
-        repeat(6){
-            println("$preTextSegment "+ channel.receive())
-        }
-        coroutineContext.cancelChildren()
-    }
-
-    fun bufferSegment() = runBlocking {
-        val channel = Channel<Int>(4)
-        val sender = launch {
-            repeat(5){
-                println("$preTextSegment Send it $it")
-                channel.send(it)
-            }
-        }
-        delay(100L)
-        sender.cancel()
-    }
-
     data class Ball(var hits:Int)
-
-    private fun allocateDataManipulation() = runBlocking {
-        val table = Channel<Ball>()
-        launch { player("ping",table) }
-        launch { player("ping",table) }
-        table.send(Ball(0))
-        delay(1000L)
-        coroutineContext.cancelChildren()
-    }
-
-    private suspend fun player(name: String, table: Channel<Ball>){
-        for(ball in table){
-            ball.hits++
-            println("$preTextSegment $name $ball")
-            delay(300L)
-            table.send(ball)
-        }
-    }
 
     private fun setUpLineChart(){
         val entries = ArrayList<Entry>()
@@ -310,5 +263,4 @@ class MainPage : AppCompatActivity() {
             |}
         """.trimMargin())
     }
-
 }

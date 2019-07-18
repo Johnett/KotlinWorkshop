@@ -12,7 +12,6 @@ open class XmlShowCaseApplication : Application() {
         super.onCreate()
         Bugsnag.init(this)
         enabledStrictMode()
-        LeakCanary.config = LeakCanary.config.copy(analysisResultListener = LeakUploader())
     }
 
     private fun enabledStrictMode() {

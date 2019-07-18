@@ -64,6 +64,7 @@ class MainPage : AppCompatActivity() {
         setUpLineChart()
         fibonacciSeries()
         debounceButtonInitializer()
+        initateLongPrintMessage()
     }
 
     private fun setUi(){
@@ -205,7 +206,7 @@ class MainPage : AppCompatActivity() {
         producer.cancel()
     }
 
-    suspend fun sendString(channel: SendChannel<String>, s: String, time: Long){
+    private suspend fun sendString(channel: SendChannel<String>, s: String, time: Long){
         while(true){
             delay(time)
             channel.send(s)
@@ -295,6 +296,19 @@ class MainPage : AppCompatActivity() {
             println(count)
             Toast.makeText(/* left=   */this,"testing",Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun initateLongPrintMessage(){
+        println("""
+            |Invalid path string: "{{your path will be here}}".
+            |For individual files, use the following syntax:
+            |wire {
+            |  sourcePath {
+            |    srcDir 'dirPath'
+            |    include 'relativePath'
+            |  }
+            |}
+        """.trimMargin())
     }
 
 }

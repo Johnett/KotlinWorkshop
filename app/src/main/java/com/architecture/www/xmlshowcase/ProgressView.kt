@@ -8,6 +8,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 
+/**
+ * CustomView which display a loading view when some process is working on background
+ */
 class ProgressView(context: Context,
                    attr:AttributeSet?):FrameLayout(context,attr) {
     companion object {
@@ -24,6 +27,9 @@ class ProgressView(context: Context,
         isFocusable = true
     }
 
+    /**
+     * Observe function watch the changes happen to the data object(which is a boolean variable)
+     */
     fun observe(
         owner: LifecycleOwner,
         data: LiveData<Boolean>

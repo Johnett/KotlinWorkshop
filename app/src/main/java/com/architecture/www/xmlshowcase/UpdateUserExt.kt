@@ -97,5 +97,5 @@ internal fun UpdateUser.getUpdate():JsonObject{
 internal fun UpdateUser.hideKeyBoard(){
     val imm:InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     val view = this.currentFocus
-    imm.hideSoftInputFromWindow(view!!.windowToken,0)
+    imm.hideSoftInputFromWindow(view?.windowToken,0)
 }

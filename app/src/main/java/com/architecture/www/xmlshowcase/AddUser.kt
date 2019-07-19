@@ -13,6 +13,9 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_add_user.*
 import kotlinx.android.synthetic.main.app_bar_layout.*
 
+/**
+ * AddUser activity; which can perform all necessary operations for adding user.
+ */
 class AddUser : AppCompatActivity() {
 
     private lateinit var addUserViewModel:AddUserViewModel
@@ -84,7 +87,7 @@ class AddUser : AppCompatActivity() {
     private fun hideKeyBoard(){
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         val view = this.currentFocus
-        imm.hideSoftInputFromWindow(view!!.windowToken,0)
+        imm.hideSoftInputFromWindow(view?.windowToken,0)
     }
 
     private fun validation():Boolean{

@@ -7,6 +7,9 @@ internal object Debouncer {
     @Volatile private var enabled: Boolean = true
     private val enableAgain = Runnable { enabled = true }
 
+    /**
+     * Check if the request is not duplicated
+     */
     fun canPerform(view: View): Boolean {
         if (enabled) {
             enabled = false

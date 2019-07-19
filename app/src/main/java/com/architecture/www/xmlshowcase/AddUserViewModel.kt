@@ -10,6 +10,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
+/**
+ * This view model dedicated to adding new user operations.
+ * Provide necessary helping functions avoid heavy operations in the main ui class.
+ */
 class AddUserViewModel:ViewModel(),LifecycleObserver {
 
     private val isLoading = MutableLiveData<Boolean>()

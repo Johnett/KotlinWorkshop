@@ -5,7 +5,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.bugsnag.android.Bugsnag
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -17,6 +16,9 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.produce
 import kotlin.math.abs
 
+/**
+ * Launching activity of the application.
+ */
 class MainPage : AppCompatActivity() {
 
     internal val preTextSegment = "MainPage___"
@@ -210,6 +212,9 @@ class MainPage : AppCompatActivity() {
         producer.cancel()
     }
 
+    /**
+     * Data class which only holds hits information
+     */
     data class Ball(var hits:Int)
 
     private fun setUpLineChart(){
@@ -232,39 +237,5 @@ class MainPage : AppCompatActivity() {
         val lineData = LineData(dataSet)
         chart.data = lineData
         chart.invalidate()
-    }
-
-    private fun fibonacciSeries(){
-        val n = 100
-        var t1 = 0
-        var t2 = 1
-        for(i in 0..n ){
-            println("$t1 +")
-            val sum = t1 + t2
-            t1 = t2
-            t2 = sum
-        }
-    }
-
-    private fun debounceButtonInitializer(){
-        var count = 0
-        btBounce.onClickDebounced {
-            count += 1
-            println(count)
-            Toast.makeText(/* left=   */this,"testing",Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun initateLongPrintMessage(){
-        println("""
-            |Invalid path string: "{{your path will be here}}".
-            |For individual files, use the following syntax:
-            |wire {
-            |  sourcePath {
-            |    srcDir 'dirPath'
-            |    include 'relativePath'
-            |  }
-            |}
-        """.trimMargin())
     }
 }

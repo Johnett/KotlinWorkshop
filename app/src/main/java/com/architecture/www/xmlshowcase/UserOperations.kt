@@ -1,5 +1,8 @@
 package com.architecture.www.xmlshowcase
 
+/**
+ * User operations interface
+ */
 interface UserOperations {
     /**
      * @param id

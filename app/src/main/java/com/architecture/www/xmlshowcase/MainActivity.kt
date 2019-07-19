@@ -9,6 +9,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_layout.*
 
 
+/**
+ * An optional main page of the application which currently used as a testing activity
+ * When there is something we have to test
+ */
 class MainActivity : AppCompatActivity() {
 
     @SuppressLint("CheckResult")

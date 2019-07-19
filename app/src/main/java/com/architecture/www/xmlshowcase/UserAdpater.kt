@@ -9,6 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.user_details_recycler_view.view.*
 
+/***
+ * Recycler view Adapter class
+ */
 class UserAdpater(private var items : MutableList<UserModel>, private val context: Context, private val userOperations: UserOperations) : RecyclerView.Adapter<ViewHolder>(),RecyclerViewOperation {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.user_details_recycler_view, parent, false))
@@ -43,6 +46,9 @@ class UserAdpater(private var items : MutableList<UserModel>, private val contex
     }
 }
 
+/***
+ * View holder class for recycler view adapter
+ */
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     // Holds the TextView that will add each animal to
     val tvUserName: TextView? = view.user_name

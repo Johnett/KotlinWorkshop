@@ -1,20 +1,13 @@
 package com.architecture.www.xmlshowcase
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.google.gson.JsonObject
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_update_user.*
 import kotlinx.android.synthetic.main.app_bar_layout.*
 
@@ -31,10 +24,10 @@ class UpdateUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_user)
 
-        val bundle :Bundle? = intent!!.extras
-        userId = bundle!!.getString("id")
+        val bundle :Bundle? = intent?.extras
+        userId = bundle?.getString("id")
 
-        getUserDetails(userId!!)
+        userId?.let { getUserDetails(it) }
         progressView.observe(this,status)
         observe(this,updateFlag)
         setUi()
@@ -49,7 +42,7 @@ class UpdateUser : AppCompatActivity() {
             val menu = toolbar.menu.findItem(R.id.commit)
             menu.setOnMenuItemClickListener {
                 if(validation()) {
-                    updateUserDetails(userId!! ,getUpdate())
+                    userId?.let { it1 -> updateUserDetails(it1,getUpdate()) }
                 }
                 true
             }
@@ -58,9 +51,6 @@ class UpdateUser : AppCompatActivity() {
         layout_shadow.visibility = View.VISIBLE
     }
 
-    /**
-     * In our case collectors are widgets which collect user information like edit text boxes
-     * */
     private fun setAllCollectors(){
         userDetails1.setLabel(R.string.add_user_name_label)
         userDetails1.setHint(R.string.add_user_name_hint)

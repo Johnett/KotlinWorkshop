@@ -16,8 +16,11 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_user_main.*
 import kotlinx.android.synthetic.main.app_bar_layout.*
 
+/**
+ * Main user activity class
+ */
 class UserMainActivity : AppCompatActivity(),UserOperations {
-    private lateinit var userResponseList: MutableList<UserModel>
+    internal lateinit var userResponseList: MutableList<UserModel>
     private var status = MutableLiveData<Boolean>()
     private var activityChangeStatus = MutableLiveData<Boolean>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +64,7 @@ class UserMainActivity : AppCompatActivity(),UserOperations {
         layout_shadow.visibility = View.VISIBLE
     }
 
-    private fun apiCall(){
+    internal fun apiCall(){
         status.value = true
         val mCompositeDisposable = CompositeDisposable()
         val userResponse = UserService.userServiceApi
@@ -77,44 +80,6 @@ class UserMainActivity : AppCompatActivity(),UserOperations {
                 status.value = false
             }))
     }
-
-    private fun delete(userId:String){
-        val mCompositeDisposable = CompositeDisposable()
-        val userResponse = UserService.userServiceApi
-        val movieResponseList = userResponse.deleteUser(userId)
-        mCompositeDisposable.add(movieResponseList
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe({
-                println("testingthedeleteresponse $it")
-            }, {
-                it.printStackTrace()
-                println("testingthedeleteresponse $it")
-            }))
-    }
-
-    private fun setRecyclerView(){
-        user_list.layoutManager = LinearLayoutManager(this)
-        user_list.adapter = UserAdpater(getResponseList(), this,this)
-    }
-
-    private fun setResponseList(responseList:MutableList<UserModel>){
-        userResponseList = responseList
-        setRecyclerView()
-    }
-
-    private fun getResponseList():MutableList<UserModel>{
-        return userResponseList
-    }
-
-    private fun observe(
-        owner: LifecycleOwner,
-        data: LiveData<Boolean>
-    ) = data.observe(owner, Observer {
-        if (it==false){
-            apiCall()
-        }
-    })
 
     override fun onResume() {
         super.onResume()

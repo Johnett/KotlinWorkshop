@@ -2,6 +2,9 @@ package com.architecture.www.xmlshowcase
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Data class to save create user parameter values.
+ */
 data class CreateUserParam(
 
     @SerializedName("name")

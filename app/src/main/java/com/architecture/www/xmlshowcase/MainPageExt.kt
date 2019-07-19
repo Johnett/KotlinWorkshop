@@ -15,7 +15,7 @@ internal const val preTextSegment = "MainPage___"
 /**
  * Coroutine testing function
  * */
-fun bufferSegment() = runBlocking {
+internal fun MainPage.bufferSegment() = runBlocking {
     val channel = Channel<Int>(4)
     val sender = launch {
         repeat(5){
@@ -37,18 +37,6 @@ internal suspend fun player(name: String, table: Channel<MainPage.Ball>){
         delay(300L)
         table.send(ball)
     }
-}
-
-/**
- * Coroutine testing function
- * */
-private fun allocateDataManipulation() = runBlocking {
-    val table = Channel<MainPage.Ball>()
-    launch { player("ping",table) }
-    launch { player("ping",table) }
-    table.send(MainPage.Ball(0))
-    delay(1000L)
-    coroutineContext.cancelChildren()
 }
 
 
@@ -128,19 +116,4 @@ internal fun MainPage.sendStringSegment() = runBlocking {
         println("$preTextSegment "+ channel.receive())
     }
     coroutineContext.cancelChildren()
-}
-
-/**
- * Coroutine testing function
- * */
-internal fun MainPage.bufferSegment() = runBlocking {
-    val channel = Channel<Int>(4)
-    val sender = launch {
-        repeat(5){
-            println("$preTextSegment Send it $it")
-            channel.send(it)
-        }
-    }
-    delay(100L)
-    sender.cancel()
 }

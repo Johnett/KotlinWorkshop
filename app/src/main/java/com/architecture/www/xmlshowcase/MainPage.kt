@@ -179,6 +179,9 @@ class MainPage : AppCompatActivity() {
         println("$preTextSegment now I can quit")
     }
 
+    /**
+     * Coroutine testing function
+     * */
     @ExperimentalCoroutinesApi
     fun CoroutineScope.produceNumbers() = produce {
         var x = 1
@@ -194,6 +197,9 @@ class MainPage : AppCompatActivity() {
         }
     }
 
+    /**
+     * Coroutine testing function
+     * */
     @ExperimentalCoroutinesApi
     fun coRoutineSegment() = runBlocking {
         val producer:ReceiveChannel<Int> = produceNumbers()

@@ -119,7 +119,7 @@ class UserMainActivity : AppCompatActivity(),UserOperations {
     override fun onResume() {
         super.onResume()
         if (activityChangeStatus.value != null){
-            if (activityChangeStatus.value!!){
+            if (activityChangeStatus.value as Boolean){
                 activityChangeStatus.value = false
             }
         }

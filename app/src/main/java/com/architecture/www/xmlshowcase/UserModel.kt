@@ -2,6 +2,9 @@ package com.architecture.www.xmlshowcase
 
 import com.google.gson.annotations.SerializedName
 
+    /**
+     * UserModel data class
+     * */
     data class UserModel(
         @SerializedName("_id")
         var id:String,
@@ -22,6 +25,9 @@ import com.google.gson.annotations.SerializedName
         var creation:String
         )
 
+    /**
+     * UserResponse data class
+     * */
     data class UserResponse(
         val results: List<UserModel>
     )

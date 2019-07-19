@@ -95,7 +95,7 @@ internal fun UpdateUser.getUpdate():JsonObject{
  * Helper function to hide keyboard after the edit text box lost its focus.
  * */
 internal fun UpdateUser.hideKeyBoard(){
-    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val imm:InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     val view = this.currentFocus
     imm.hideSoftInputFromWindow(view!!.windowToken,0)
 }
